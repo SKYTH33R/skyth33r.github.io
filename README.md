@@ -10,17 +10,17 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.css"/>
 <style>
 :root{
-  --bg:#f0f2f5;--bg2:#ffffff;--bg3:#e8eaed;
-  --border:rgba(0,0,0,0.1);--text:#1a202c;--muted:#718096;--accent:#1a56db;
-  --sh:0 1px 3px rgba(0,0,0,0.08);--shh:0 6px 20px rgba(0,0,0,0.12);
-  --sociale:#0d9488;--sociale-bg:rgba(13,148,136,.1);
-  --techno:#1a56db;--techno-bg:rgba(26,86,219,.1);
-  --eco:#c2410c;--eco-bg:rgba(194,65,12,.1);
-  --ouverte:#6d28d9;--ouverte-bg:rgba(109,40,217,.1);
-  --mixte:#b45309;--mixte-bg:rgba(180,83,9,.1);
-  --univ:#1a56db;--labo:#0d9488;--instit:#c2410c;
-  --entreprise:#6d28d9;--sante:#b91c1c;--collectivite:#b45309;
-  --satt:#15803d;--pole:#be185d;
+  --bg:#0f1117;--bg2:#1a1d27;--bg3:#252836;
+  --border:rgba(255,255,255,0.08);--text:#e2e4ea;--muted:#8b8fa3;--accent:#6c8cff;
+  --sh:0 1px 3px rgba(0,0,0,0.3);--shh:0 6px 20px rgba(0,0,0,0.45);
+  --sociale:#34d399;--sociale-bg:rgba(52,211,153,.12);
+  --techno:#6c8cff;--techno-bg:rgba(108,140,255,.12);
+  --eco:#fb923c;--eco-bg:rgba(251,146,60,.12);
+  --ouverte:#c084fc;--ouverte-bg:rgba(192,132,252,.12);
+  --mixte:#fbbf24;--mixte-bg:rgba(251,191,36,.12);
+  --univ:#6c8cff;--labo:#34d399;--instit:#fb923c;
+  --entreprise:#c084fc;--sante:#f87171;--collectivite:#fbbf24;
+  --satt:#4ade80;--pole:#f472b6;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;height:100vh;overflow:hidden;}
@@ -57,7 +57,7 @@ header{background:var(--bg2);border-bottom:1px solid var(--border);padding:12px 
 .sw input{width:100%;padding:6px 9px 6px 28px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.8rem;outline:none;transition:border .2s;}
 .sw input:focus{border-color:var(--accent);}
 .sw input::placeholder{color:var(--muted);}
-select{padding:6px 24px 6px 9px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.8rem;outline:none;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 12 12'%3E%3Cpath fill='%23718096' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 7px center;background-color:var(--bg3);}
+select{padding:6px 24px 6px 9px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.8rem;outline:none;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 12 12'%3E%3Cpath fill='%238b8fa3' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 7px center;background-color:var(--bg3);}
 .rc{margin-left:auto;font-size:.73rem;color:var(--muted);white-space:nowrap;}
 .rc span{color:var(--accent);font-weight:600;}
 .rbtn{padding:6px 10px;background:none;border:1px solid var(--border);border-radius:8px;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:.75rem;cursor:pointer;transition:all .18s;}
@@ -97,13 +97,13 @@ select{padding:6px 24px 6px 9px;background:var(--bg3);border:1px solid var(--bor
 .be{background:var(--eco-bg);color:var(--eco);}
 .bo{background:var(--ouverte-bg);color:var(--ouverte);}
 .bm{background:var(--mixte-bg);color:var(--mixte);}
-.bu{background:rgba(26,86,219,.1);color:var(--univ);}
-.bl{background:rgba(13,148,136,.1);color:var(--labo);}
-.bi{background:rgba(194,65,12,.1);color:var(--instit);}
-.bep{background:rgba(109,40,217,.1);color:var(--entreprise);}
-.bsa{background:rgba(185,28,28,.1);color:var(--sante);}
-.bc{background:rgba(180,83,9,.1);color:var(--collectivite);}
-.btr{background:rgba(21,128,61,.1);color:var(--satt);}
+.bu{background:rgba(108,140,255,.15);color:var(--univ);}
+.bl{background:rgba(52,211,153,.15);color:var(--labo);}
+.bi{background:rgba(251,146,60,.15);color:var(--instit);}
+.bep{background:rgba(192,132,252,.15);color:var(--entreprise);}
+.bsa{background:rgba(248,113,113,.15);color:var(--sante);}
+.bc{background:rgba(251,191,36,.15);color:var(--collectivite);}
+.btr{background:rgba(74,222,128,.15);color:var(--satt);}
 
 /* MAP CONTAINER */
 .mcw{position:relative;flex:1;display:flex;min-height:0;}
@@ -114,18 +114,18 @@ select{padding:6px 24px 6px 9px;background:var(--bg3);border:1px solid var(--bor
 .mcp>*{pointer-events:auto;}
 .msw{position:relative;}
 .msw svg{position:absolute;left:9px;top:50%;transform:translateY(-50%);opacity:.4;pointer-events:none;}
-.minput{background:var(--bg2);border:1px solid var(--border);border-radius:9px;padding:7px 9px 7px 29px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);outline:none;width:220px;box-shadow:0 2px 8px rgba(0,0,0,.12);}
+.minput{background:var(--bg2);border:1px solid var(--border);border-radius:9px;padding:7px 9px 7px 29px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);outline:none;width:220px;box-shadow:0 2px 8px rgba(0,0,0,.35);}
 .minput::placeholder{color:var(--muted);}
 .mpills{display:flex;flex-wrap:wrap;gap:4px;}
-.pill{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:3px 9px;font-size:.69rem;color:var(--muted);cursor:pointer;transition:all .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:3px;box-shadow:0 1px 4px rgba(0,0,0,.1);}
+.pill{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:3px 9px;font-size:.69rem;color:var(--muted);cursor:pointer;transition:all .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:3px;box-shadow:0 1px 4px rgba(0,0,0,.3);}
 .pill:hover{color:var(--text);}
-.pill.active{border-color:var(--pc,var(--accent));color:var(--pc,var(--accent));font-weight:600;background:white;box-shadow:0 2px 8px rgba(0,0,0,.12);}
-.mlegbox{background:var(--bg2);border:1px solid var(--border);border-radius:9px;padding:9px 11px;display:flex;flex-direction:column;gap:4px;box-shadow:0 2px 8px rgba(0,0,0,.1);}
+.pill.active{border-color:var(--pc,var(--accent));color:var(--pc,var(--accent));font-weight:600;background:var(--bg3);box-shadow:0 2px 8px rgba(0,0,0,.3);}
+.mlegbox{background:var(--bg2);border:1px solid var(--border);border-radius:9px;padding:9px 11px;display:flex;flex-direction:column;gap:4px;box-shadow:0 2px 8px rgba(0,0,0,.3);}
 .mlegtitle{font-family:'Syne',sans-serif;font-weight:700;font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:1px;}
 .mlegrow{display:flex;align-items:center;gap:6px;font-size:.69rem;color:var(--muted);}
 
 /* SIDEBAR */
-.sb-panel{position:absolute;top:0;right:0;width:290px;height:100%;background:var(--bg2);border-left:1px solid var(--border);z-index:900;overflow-y:auto;transform:translateX(100%);transition:transform .25s ease;display:flex;flex-direction:column;box-shadow:-4px 0 20px rgba(0,0,0,.1);}
+.sb-panel{position:absolute;top:0;right:0;width:290px;height:100%;background:var(--bg2);border-left:1px solid var(--border);z-index:900;overflow-y:auto;transform:translateX(100%);transition:transform .25s ease;display:flex;flex-direction:column;box-shadow:-4px 0 20px rgba(0,0,0,.35);}
 .sb-panel.open{transform:translateX(0);}
 .sbhdr{padding:13px 14px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start;gap:7px;position:sticky;top:0;background:var(--bg2);z-index:1;}
 .sbtitle{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;line-height:1.3;color:var(--text);}
@@ -143,29 +143,30 @@ select{padding:6px 24px 6px 9px;background:var(--bg3);border:1px solid var(--bor
 .contact-row a:hover{text-decoration:underline;}
 
 /* POPUP */
-.leaflet-popup-content-wrapper{background:var(--bg2)!important;color:var(--text)!important;border:1px solid rgba(0,0,0,.12)!important;border-radius:10px!important;box-shadow:0 4px 20px rgba(0,0,0,.15)!important;padding:0!important;}
+.leaflet-popup-content-wrapper{background:var(--bg2)!important;color:var(--text)!important;border:1px solid rgba(255,255,255,.08)!important;border-radius:10px!important;box-shadow:0 4px 20px rgba(0,0,0,.45)!important;padding:0!important;}
 .leaflet-popup-content{margin:0!important;padding:12px 13px!important;font-family:'DM Sans',sans-serif;font-size:.78rem;min-width:175px;max-width:240px;}
 .leaflet-popup-tip-container{margin-top:-1px;}
-.leaflet-popup-tip{background:var(--bg2)!important;}
+.leaflet-popup-tip{background:var(--bg2)!important;border:1px solid rgba(255,255,255,.08)!important;}
 .pname{font-family:'Syne',sans-serif;font-weight:700;font-size:.87rem;display:block;margin-bottom:1px;color:var(--text);}
 .ptype{color:var(--muted);font-size:.66rem;display:block;margin-bottom:6px;}
 .pcontact{display:flex;flex-direction:column;gap:2px;margin-bottom:7px;}
 .prow{display:flex;align-items:center;gap:5px;font-size:.7rem;color:var(--muted);line-height:1.4;}
 .prow a{color:var(--accent);text-decoration:none;}
 .pbtn{background:var(--accent);color:white;border:none;border-radius:6px;padding:5px 10px;font-size:.72rem;cursor:pointer;width:100%;font-family:'DM Sans',sans-serif;font-weight:500;transition:background .15s;}
-.pbtn:hover{background:#1447b3;}
+.pbtn:hover{background:#5670d9;}
 
 /* LEAFLET */
-.leaflet-control-zoom a{background:var(--bg2)!important;color:var(--text)!important;border-color:rgba(0,0,0,.12)!important;box-shadow:0 1px 5px rgba(0,0,0,.15)!important;}
+.leaflet-control-zoom a{background:var(--bg2)!important;color:var(--text)!important;border-color:rgba(255,255,255,.08)!important;box-shadow:0 1px 5px rgba(0,0,0,.35)!important;}
 .leaflet-control-zoom a:hover{background:var(--bg3)!important;}
-.leaflet-control-attribution{font-size:.6rem!important;background:rgba(255,255,255,.8)!important;}
-.marker-cluster-small,.marker-cluster-medium,.marker-cluster-large{background:rgba(26,86,219,.18)!important;}
-.marker-cluster-small div,.marker-cluster-medium div,.marker-cluster-large div{background:rgba(26,86,219,.65)!important;color:white!important;font-weight:700;font-family:'Syne',sans-serif;}
+.leaflet-control-attribution{font-size:.6rem!important;background:rgba(15,17,23,.75)!important;color:var(--muted)!important;}
+.leaflet-control-attribution a{color:var(--accent)!important;}
+.marker-cluster-small,.marker-cluster-medium,.marker-cluster-large{background:rgba(108,140,255,.18)!important;}
+.marker-cluster-small div,.marker-cluster-medium div,.marker-cluster-large div{background:rgba(108,140,255,.65)!important;color:white!important;font-weight:700;font-family:'Syne',sans-serif;}
 
 /* MODAL */
-.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);backdrop-filter:blur(3px);z-index:2000;align-items:center;justify-content:center;padding:20px;}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(5px);z-index:2000;align-items:center;justify-content:center;padding:20px;}
 .overlay.open{display:flex;}
-.modal{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:22px;max-width:480px;width:100%;position:relative;animation:mIn .18s ease;box-shadow:0 20px 60px rgba(0,0,0,.18);}
+.modal{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:22px;max-width:480px;width:100%;position:relative;animation:mIn .18s ease;box-shadow:0 20px 60px rgba(0,0,0,.5);}
 @keyframes mIn{from{opacity:0;transform:scale(.95);}to{opacity:1;transform:scale(1);}}
 .mcl{position:absolute;top:12px;right:12px;background:var(--bg3);border:none;border-radius:7px;color:var(--muted);width:28px;height:28px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;}
 .mcl:hover{color:var(--text);}
@@ -188,7 +189,7 @@ select{padding:6px 24px 6px 9px;background:var(--bg3);border:1px solid var(--bor
 
 ::-webkit-scrollbar{width:4px;height:4px;}
 ::-webkit-scrollbar-track{background:transparent;}
-::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:4px;}
+::-webkit-scrollbar-thumb{background:#3a3f52;border-radius:4px;}
 
 @media(max-width:640px){
   header,.tabs,.legbar,.ctrlbar,.content{padding-left:14px;padding-right:14px;}
@@ -209,7 +210,7 @@ select{padding:6px 24px 6px 9px;background:var(--bg3);border:1px solid var(--bor
   </div>
   <div class="hst">
     <div class="sp"><div class="n">20</div><div class="l">Dispositifs</div></div>
-    <div class="sp"><div class="n">120+</div><div class="l">Acteurs</div></div>
+    <div class="sp"><div class="n">130+</div><div class="l">Acteurs</div></div>
     <div class="sp"><div class="n">2</div><div class="l">Métropoles</div></div>
   </div>
 </header>
@@ -361,6 +362,8 @@ const CONTACTS = {
   "Kairos Discovery":                    {adresse:"Lyon, France",web:"www.kairosdiscovery.com"},
   "HEC Montréal":                        {adresse:"3000 Ch. de la Côte-Sainte-Catherine, Montréal",tel:"+1 514 340-6000",web:"www.hec.ca"},
   "CIC Lyon":                            {adresse:"103 Grande Rue de la Croix-Rousse, 69004 Lyon",tel:"04 72 07 19 40",web:"www.chu-lyon.fr"},
+  "Ville de Lyon":{adresse:"1 Place de la Comédie, 69001 Lyon",tel:"04 72 10 30 30",web:"www.lyon.fr"},
+  "Métropole de Lyon":{adresse:"20 Rue du Lac, 69003 Lyon",tel:"04 78 63 40 40",web:"www.grandlyon.com"},
   "CIC Saint-Étienne":                   {adresse:"Hôpital Nord, 42055 Saint-Étienne Cedex 2",tel:"04 77 82 83 84"},
 };
 
@@ -368,26 +371,26 @@ const CONTACTS = {
    DISPOSITIFS D'INNOVATION
    ════════════════════════════════════ */
 const DISP = [
-  {nom:"Boutique des sciences",portage:"ComUE",type:"Innovation sociale",cible:"Société civile",maturite:3,coords:[45.757,4.832]},
-  {nom:"Dispositif innovation sociale et publique",portage:"ComUE",type:"Innovation sociale",cible:"Enseignants-chercheurs",maturite:2,coords:[45.7575,4.8318]},
-  {nom:"CELSE",portage:"ComUE / Univ. Jean Monnet",type:"Innovation économique",cible:"Etudiants",maturite:9,coords:[45.4403,4.3872]},
-  {nom:"Public Factory",portage:"IEP de Lyon",type:"Innovation sociale",cible:"Etudiants et prestataires",maturite:7,coords:[45.7565,4.8322]},
-  {nom:"Accélération Deeptech",portage:"Pulsalys",type:"Innovation technologique",cible:"Entrepreneurs",maturite:7,coords:[45.7796,4.8742]},
-  {nom:"Direction de l'innovation HCL",portage:"HCL",type:"Innovation sociale / technologique",cible:"Hospitaliers",maturite:7,coords:[45.7622,4.8545]},
-  {nom:"CIMES",portage:"DGE",type:"Innovation ouverte",cible:"Entrepreneurs, universitaires",maturite:9,coords:[45.7640,4.8358]},
-  {nom:"Fondation Jean Monnet",portage:"Université Jean-Monnet",type:"Innovation sociale",cible:"Enseignants-chercheurs",maturite:7,coords:[45.4398,4.3878]},
-  {nom:"Minalogic",portage:"DGE",type:"Innovation ouverte",cible:"Entrepreneurs, universitaires",maturite:9,coords:[45.1890,5.7244]},
-  {nom:"Cluster Noveka medtech",portage:"Saint-Etienne métropole",type:"Innovation technologique",cible:"Professionnels de santé",maturite:9,coords:[45.4342,4.3915]},
-  {nom:"CETIM",portage:"DGE",type:"Innovation technologique",cible:"Société civile",maturite:9,coords:[47.2184,-1.5536]},
-  {nom:"Centre Léon Bérard",portage:"INCa",type:"Innovation technologique",cible:"Professionnels de santé",maturite:9,coords:[45.7440,4.8330]},
-  {nom:"Fonds investissement innovation",portage:"Métropole de Saint-Etienne",type:"Innovation économique",cible:"Entrepreneurs, chercheurs",maturite:7,coords:[45.4345,4.3908]},
-  {nom:"Projet COPING",portage:"IAE Lyon",type:"Innovation sociale",cible:"Hospitaliers",maturite:7,coords:[45.7682,4.8530]},
-  {nom:"Projet MARTI",portage:"Labo ICAR / ALSAN",type:"Innovation sociale",cible:"HCL",maturite:9,coords:[45.7300,4.8270]},
-  {nom:"Odimedi",portage:"Laboratoire ICAR",type:"Innovation sociale",cible:"Travailleurs sociaux, interprètes",maturite:9,coords:[45.7297,4.8264]},
-  {nom:"CRCL",portage:"INSERM-CNRS-Lyon 1",type:"Innovation technologique",cible:"Chercheurs",maturite:7,coords:[45.7815,4.8668]},
-  {nom:"Cancéropôle",portage:"INCa",type:"Innovation technologique",cible:"Hospitaliers",maturite:5,coords:[45.7438,4.8325]},
-  {nom:"Kairos Discovery",portage:"—",type:"Innovation technologique",cible:"Entrepreneurs / chercheurs",maturite:6,coords:[45.7510,4.8392]},
-  {nom:"Axxelera",portage:"DGE",type:"Innovation ouverte",cible:"Entrepreneurs, universitaires",maturite:9,coords:[45.7492,4.8296]},
+  {nom:"Boutique des sciences",portage:"ComUE",type:"Innovation sociale",cible:"Société civile",maturite:3,coords:[45.7485,4.8366]},
+  {nom:"Dispositif innovation sociale et publique",portage:"ComUE",type:"Innovation sociale",cible:"Enseignants-chercheurs",maturite:2,coords:[45.7485,4.8366]},
+  {nom:"CELSE",portage:"ComUE / Univ. Jean Monnet",type:"Innovation économique",cible:"Etudiants",maturite:9,coords:[45.4248,4.3927]},
+  {nom:"Public Factory",portage:"IEP de Lyon",type:"Innovation sociale",cible:"Etudiants et prestataires",maturite:7,coords:[45.7470,4.8537]},
+  {nom:"Accélération Deeptech",portage:"Pulsalys",type:"Innovation technologique",cible:"Entrepreneurs",maturite:7,coords:[45.7813,4.8743]},
+  {nom:"Direction de l'innovation HCL",portage:"HCL",type:"Innovation sociale / technologique",cible:"Hospitaliers",maturite:7,coords:[45.7609,4.8316]},
+  {nom:"CIMES",portage:"DGE",type:"Innovation ouverte",cible:"Entrepreneurs, universitaires",maturite:9,coords:null},
+  {nom:"Fondation Jean Monnet",portage:"Université Jean-Monnet",type:"Innovation sociale",cible:"Enseignants-chercheurs",maturite:7,coords:[45.4248,4.3927]},
+  {nom:"Minalogic",portage:"DGE",type:"Innovation ouverte",cible:"Entrepreneurs, universitaires",maturite:9,coords:[45.1933,5.7075]},
+  {nom:"Cluster Noveka medtech",portage:"Saint-Etienne métropole",type:"Innovation technologique",cible:"Professionnels de santé",maturite:9,coords:[45.4509,4.3869]},
+  {nom:"CETIM",portage:"DGE",type:"Innovation technologique",cible:"Société civile",maturite:9,coords:[47.1903,-1.6015]},
+  {nom:"Centre Léon Bérard",portage:"INCa",type:"Innovation technologique",cible:"Professionnels de santé",maturite:9,coords:[45.7413,4.8786]},
+  {nom:"Fonds investissement innovation",portage:"Métropole de Saint-Etienne",type:"Innovation économique",cible:"Entrepreneurs, chercheurs",maturite:7,coords:[45.4399,4.3983]},
+  {nom:"Projet COPING",portage:"IAE Lyon",type:"Innovation sociale",cible:"Hospitaliers",maturite:7,coords:[45.7488,4.8605]},
+  {nom:"Projet MARTI",portage:"Labo ICAR / ALSAN",type:"Innovation sociale",cible:"HCL",maturite:9,coords:[45.7333,4.8334]},
+  {nom:"Odimedi",portage:"Laboratoire ICAR",type:"Innovation sociale",cible:"Travailleurs sociaux, interprètes",maturite:9,coords:[45.7333,4.8334]},
+  {nom:"CRCL",portage:"INSERM-CNRS-Lyon 1",type:"Innovation technologique",cible:"Chercheurs",maturite:7,coords:[45.7409,4.8759]},
+  {nom:"Cancéropôle",portage:"INCa",type:"Innovation technologique",cible:"Hospitaliers",maturite:5,coords:[45.7268,4.838]},
+  {nom:"Kairos Discovery",portage:"—",type:"Innovation technologique",cible:"Entrepreneurs / chercheurs",maturite:6,coords:null},
+  {nom:"Axelera",portage:"DGE",type:"Innovation ouverte",cible:"Entrepreneurs, universitaires",maturite:9,coords:[45.6433,4.8276]},
 ];
 
 /* ════════════════════════════════════
@@ -395,23 +398,34 @@ const DISP = [
    ════════════════════════════════════ */
 function jit(b,i,r=.0022){const a=(i*2.399)%(Math.PI*2),d=(((i*7+3)%10)/10)*r;return[b[0]+Math.sin(a)*d,b[1]+Math.cos(a)*d];}
 const C={
-  l1:[45.7824,4.8657],   // Campus La Doua — Lyon 1 / INSA
-  l2:[45.7453,4.8347],   // Campus Porte des Alpes — Lyon 2
-  sp:[45.7564,4.8318],   // Sciences Po Lyon — Av. Berthelot
-  jm:[45.4397,4.3874],   // Université Jean Monnet — SE
-  ens:[45.7298,4.8272],  // ENS Lyon — site Gerland
-  ctr:[45.7936,4.9218],  // Centrale Lyon — Écully
-  mns:[45.4234,4.4062],  // Mines Saint-Étienne
-  hcl:[45.7614,4.8558],  // HCL siège Quai des Célestins
-  clb:[45.7438,4.8330],  // Centre Léon Bérard
-  cnrs:[45.7843,4.8694], // CNRS Délégation Villeurbanne
-  doua:[45.7797,4.8724], // Site La Doua (commun INSA/Lyon1)
-  bron:[45.7344,4.9162], // Bron — SBRI, ISC
-  obsl:[45.7001,4.8340], // Observatoire Saint-Genis-Laval
-  axl:[45.7492,4.8298],  // Axelera
-  comue:[45.7566,4.8315],// COMUE — Rue Pasteur
-  inria:[45.7886,4.8779],// Inria Lyon
-  ifstar:[45.7662,4.9044]// IFSTTAR (Bron)
+  l1:[45.7796,4.8656],   // Université Claude Bernard Lyon 1 — Campus Doua (confirmé)
+  l2:[45.7508,4.8372],   // Université Lumière Lyon 2 — Berges du Rhône (confirmé)
+  sp:[45.7471,4.8358],   // Sciences Po Lyon — 14 Av. Berthelot (confirmé)
+  jm:[45.4248,4.3927],   // Université Jean Monnet — 10 Rue Tréfilerie (confirmé)
+  ens:[45.7333,4.8334],  // ENS Lyon — 15 parvis René Descartes (confirmé)
+  ctr:[45.7826,4.7665],  // Centrale Lyon — 36 Av. Guy de Collongue, Écully (confirmé)
+  mns:[45.4225,4.4084],  // Mines Saint-Étienne — 158 Cours Fauriel (confirmé)
+  insa:[45.7834,4.8782], // INSA Lyon — 20 Av. Albert Einstein (confirmé)
+  hcl:[45.7609,4.8316],  // HCL siège — 3 Quai des Célestins (confirmé)
+  clb:[45.7413,4.8786],  // Centre Léon Bérard — 28 Rue Laënnec (confirmé)
+  cnrs:[45.7801,4.8749], // CNRS Délég. Rhône Auvergne — 2 Av. Albert Einstein (confirmé)
+  doua:[45.7810,4.8720], // Site La Doua (commun INSA/Lyon1)
+  bron:[45.7286,4.9197], // Bron — SBRI / Neurosciences
+  obsl:[45.6939,4.7830], // Observatoire — 9 Av. Charles André, Saint-Genis-Laval (confirmé)
+  axl:[45.6433,4.8276],  // Axelera — Solaize (confirmé)
+  comue:[45.7508,4.8372],// COMUE — Université de Lyon
+  inria:[45.7834,4.8782],// INRIA Lyon — campus INSA
+  ifstar:[45.7286,4.9197],// Univ. Gustave Eiffel (Bron)
+  pulsalys:[45.7813,4.8743],// Pulsalys — 10 Av. Jean Capelle (confirmé)
+  cic_se:[45.4340,4.3890],// CIC Saint-Étienne — Hôpital Nord
+  chu_se:[45.4340,4.3895],// CHU Saint-Étienne
+  se_ville:[45.4398,4.3875],// Ville de Saint-Étienne — Hôtel de Ville (confirmé)
+  se_metro:[45.4399,4.3983],// Métropole Saint-Étienne — 2 Av. Grüner (confirmé)
+  rock:[45.7442,4.8707], // Campus Rockefeller Lyon 8
+  gerland:[45.7268,4.8380],// Gerland
+  ecam:[45.7627,4.8252], // ECAM Lyon
+  emlyon:[45.7414,4.8394],// emlyon business school Gerland (confirmé)
+  iae:[45.7488,4.8605],  // IAE Lyon — 6 Cours Albert Thomas (confirmé)
 };
 function L1(i){return jit(C.l1,i,.003);}
 function L2(i){return jit(C.l2,i,.002);}
@@ -423,169 +437,171 @@ function DU(i){return jit(C.doua,i,.0025);}
 
 const AR = [
   // Institutions & gouvernance
-  {nom:"DRARI",type:"Institution publique",desc:"Direction Régionale des Affaires de Recherche et de l'Innovation",tutelle:"MESRI",coords:C.comue},
-  {nom:"Ville de Saint-Étienne",type:"Collectivité territoriale",desc:"Collectivité territoriale — Hôtel de Ville",tutelle:"",coords:[45.4347,4.3906]},
-  {nom:"COMUE - Université de Lyon",type:"Structure de coordination académique",desc:"Communauté d'universités et établissements — site Lyon Saint-Étienne",tutelle:"",coords:C.comue},
+  {nom:"DRARI",type:"Institution publique",desc:"Direction Régionale des Affaires de Recherche et de l'Innovation",tutelle:"MESRI",coords:[45.7569,4.8524]},
+  {nom:"Ville de Lyon",type:"Collectivité territoriale",desc:"Hôtel de Ville de Lyon — Place des Terreaux",tutelle:"",coords:[45.7676,4.8344]},
+  {nom:"Métropole de Lyon",type:"Collectivité territoriale",desc:"Métropole de Lyon — 20 Rue du Lac, Lyon 3",tutelle:"",coords:[45.7576,4.8537]},
+  {nom:"Ville de Saint-Étienne",type:"Collectivité territoriale",desc:"Collectivité territoriale — Hôtel de Ville",tutelle:"",coords:[45.4398,4.3875]},
+  {nom:"COMUE - Université de Lyon",type:"Structure de coordination académique",desc:"Communauté d'universités et établissements — site Lyon Saint-Étienne",tutelle:"",coords:[45.7485,4.8366]},
   // Universités
-  {nom:"Université Claude Bernard Lyon 1",type:"Université",desc:"Sciences, santé, technologie — 45 000 étudiants",tutelle:"MESRI",coords:C.doua},
-  {nom:"Université Lumière Lyon 2",type:"Université",desc:"Sciences humaines et sociales",tutelle:"MESRI",coords:C.l2},
-  {nom:"Sciences Po Lyon",type:"Grande école / IEP",desc:"Institut d'études politiques de Lyon, fondé en 1948",tutelle:"MESRI",coords:C.sp},
-  {nom:"Université Jean Monnet",type:"Université",desc:"Université pluridisciplinaire — 13 000 étudiants",tutelle:"MESRI",coords:C.jm},
-  {nom:"HEC Montréal",type:"Université internationale partenaire",desc:"Partenaire international — Montréal, Canada",tutelle:"",coords:[45.5048,-73.6149]},
+  {nom:"Université Claude Bernard Lyon 1",type:"Université",desc:"Sciences, santé, technologie — 45 000 étudiants",tutelle:"MESRI",coords:[45.7796,4.8656]},
+  {nom:"Université Lumière Lyon 2",type:"Université",desc:"Sciences humaines et sociales",tutelle:"MESRI",coords:[45.7508,4.8372]},
+  {nom:"Sciences Po Lyon",type:"Grande école / IEP",desc:"Institut d'études politiques de Lyon, fondé en 1948",tutelle:"MESRI",coords:[45.7471,4.8358]},
+  {nom:"Université Jean Monnet",type:"Université",desc:"Université pluridisciplinaire — 13 000 étudiants",tutelle:"MESRI",coords:[45.4248,4.3927]},
+  {nom:"HEC Montréal",type:"Université internationale partenaire",desc:"Partenaire international — Montréal, Canada",tutelle:"",coords:null},
   // Organismes de recherche
-  {nom:"CNRS - Délégation Rhône Auvergne",type:"Organisme national de recherche",desc:"Délégation régionale du Centre National de la Recherche Scientifique",tutelle:"",coords:C.cnrs},
-  {nom:"PEPR (coord. Lyon 1)",type:"Programme national de recherche",desc:"Programme et Équipements Prioritaires de Recherche",tutelle:"Lyon 1",coords:L1(20)},
+  {nom:"CNRS - Délégation Rhône Auvergne",type:"Organisme national de recherche",desc:"Délégation régionale du Centre National de la Recherche Scientifique",tutelle:"",coords:[45.7801,4.8749]},
+  {nom:"PEPR (coord. Lyon 1)",type:"Programme national de recherche",desc:"Programme et Équipements Prioritaires de Recherche",tutelle:"Lyon 1",coords:[45.7796,4.8656]},
   // Transfert & valorisation
-  {nom:"Pulsalys",type:"SATT / Transfert de technologie",desc:"SATT Lyon Saint-Étienne — deeptech, maturation, startups",tutelle:"",coords:C.doua},
+  {nom:"Pulsalys",type:"SATT / Transfert de technologie",desc:"SATT Lyon Saint-Étienne — deeptech, maturation, startups",tutelle:"",coords:[45.7813,4.8743]},
   // Santé
-  {nom:"Hospices Civils de Lyon",type:"CHU / Hôpital public",desc:"13 hôpitaux publics — soin, formation, recherche",tutelle:"",coords:C.hcl},
-  {nom:"Centre Léon Bérard",type:"Centre de lutte contre le cancer",desc:"Centre de lutte contre le cancer de Lyon",tutelle:"INCa",coords:C.clb},
-  {nom:"CIC Lyon",type:"CHU / Hôpital public",desc:"Centre d'Investigation Clinique de Lyon",tutelle:"HCL / INSERM",coords:jit(C.hcl,1,.003)},
-  {nom:"CIC Saint-Étienne",type:"CHU / Hôpital public",desc:"Centre d'Investigation Clinique de Saint-Étienne",tutelle:"CHU SE",coords:JM(7)},
+  {nom:"Hospices Civils de Lyon",type:"CHU / Hôpital public",desc:"13 hôpitaux publics — soin, formation, recherche",tutelle:"",coords:[45.7609,4.8316]},
+  {nom:"Centre Léon Bérard",type:"Centre de lutte contre le cancer",desc:"Centre de lutte contre le cancer de Lyon",tutelle:"INCa",coords:[45.7413,4.8786]},
+  {nom:"CIC Lyon",type:"CHU / Hôpital public",desc:"Centre d'Investigation Clinique de Lyon",tutelle:"HCL / INSERM",coords:[45.7609,4.8316]},
+  {nom:"CIC Saint-Étienne",type:"CHU / Hôpital public",desc:"Centre d'Investigation Clinique de Saint-Étienne",tutelle:"CHU SE",coords:[45.4340,4.3890]},
   // Pôles & compétitivité
-  {nom:"Pôle AXELERA",type:"Pôle de compétitivité",desc:"Pôle chimie / environnement Rhône-Alpes Auvergne",tutelle:"DGE",coords:C.axl},
-  {nom:"Minalogic",type:"Pôle de compétitivité",desc:"Pôle mondial micro-nano technologies et logiciels embarqués",tutelle:"DGE",coords:[45.1890,5.7244]},
+  {nom:"Pôle AXELERA",type:"Pôle de compétitivité",desc:"Pôle chimie / environnement Rhône-Alpes Auvergne",tutelle:"DGE",coords:[45.6433,4.8276]},
+  {nom:"Minalogic",type:"Pôle de compétitivité",desc:"Pôle mondial micro-nano technologies et logiciels embarqués",tutelle:"DGE",coords:[45.1933,5.7075]},
   // Entreprise
-  {nom:"Kairos Discovery",type:"Entreprise biotech",desc:"Entreprise de biotechnologie — innovations thérapeutiques",tutelle:"",coords:[45.7512,4.8392]},
+  {nom:"Kairos Discovery",type:"Entreprise biotech",desc:"Entreprise de biotechnologie — innovations thérapeutiques",tutelle:"",coords:null},
   // Centre technique
-  {nom:"CETIM (Nantes)",type:"Centre technique industriel",desc:"Centre Technique des Industries Mécaniques",tutelle:"DGE",coords:[47.2184,-1.5536]},
+  {nom:"CETIM (Nantes)",type:"Centre technique industriel",desc:"Centre Technique des Industries Mécaniques",tutelle:"DGE",coords:[47.1903,-1.6015]},
   // Calcul
-  {nom:"CCIN2P3",type:"Institution publique",desc:"Centre de Calcul de l'IN2P3 — physique nucléaire et particules",tutelle:"CNRS",coords:DU(7)},
+  {nom:"CCIN2P3",type:"Institution publique",desc:"Centre de Calcul de l'IN2P3 — physique nucléaire et particules",tutelle:"CNRS",coords:[45.7827,4.8653]},
   // Labos ENS Lyon (site Gerland)
-  {nom:"ELICO",type:"Laboratoire universitaire",desc:"Sciences de l'Information et de la Communication",tutelle:"ENS Lyon / Lyon 2",coords:EN(1)},
-  {nom:"ASLAN",type:"Laboratoire universitaire",desc:"Atelier Sciences du Langage",tutelle:"ENS Lyon / CNRS",coords:EN(2)},
-  {nom:"ICAR - ENS Lyon",type:"Laboratoire universitaire",desc:"Interactions, corpus, apprentissages, représentations",tutelle:"ENS Lyon / CNRS",coords:EN(3)},
-  {nom:"CIRI",type:"Laboratoire de recherche",desc:"Centre International de Recherche en Infectiologie",tutelle:"ENS Lyon / INSERM",coords:EN(4)},
-  {nom:"IGFL",type:"Laboratoire de recherche",desc:"Institut de Génomique Fonctionnelle de Lyon",tutelle:"ENS Lyon / CNRS",coords:EN(5)},
-  {nom:"LIP",type:"Laboratoire de recherche",desc:"Laboratoire de l'Informatique du Parallélisme",tutelle:"ENS Lyon / CNRS",coords:EN(6)},
-  {nom:"TRIANGLE",type:"Laboratoire de recherche",desc:"Action, discours, pensée politique et économique",tutelle:"ENS Lyon / CNRS",coords:EN(7)},
-  {nom:"IAO",type:"Laboratoire de recherche",desc:"Institut d'Asie Orientale",tutelle:"ENS Lyon",coords:EN(8)},
-  {nom:"UMPA",type:"Laboratoire de recherche",desc:"Unité de Mathématiques Pures et Appliquées",tutelle:"ENS Lyon / CNRS",coords:EN(9)},
-  {nom:"RDP",type:"Laboratoire de recherche",desc:"Reproduction et Développement des Plantes",tutelle:"ENS Lyon / INRAE",coords:EN(10)},
-  {nom:"LPH ENS",type:"Laboratoire de recherche",desc:"Laboratoire de Physique ENS Lyon",tutelle:"ENS Lyon / CNRS",coords:EN(11)},
-  {nom:"LBMCHOCS",type:"Laboratoire de recherche",desc:"Biologie et modélisation de la cellule",tutelle:"ENS Lyon",coords:EN(12)},
-  {nom:"LCH",type:"Laboratoire de recherche",desc:"Laboratoire de Chimie ENS Lyon",tutelle:"ENS Lyon / CNRS",coords:EN(13)},
+  {nom:"ELICO",type:"Laboratoire universitaire",desc:"Sciences de l'Information et de la Communication",tutelle:"ENS Lyon / Lyon 2",coords:[45.7796,4.8656]},
+  {nom:"ASLAN",type:"Laboratoire universitaire",desc:"Atelier Sciences du Langage",tutelle:"ENS Lyon / CNRS",coords:[45.7333,4.8334]},
+  {nom:"ICAR - ENS Lyon",type:"Laboratoire universitaire",desc:"Interactions, corpus, apprentissages, représentations",tutelle:"ENS Lyon / CNRS",coords:[45.7333,4.8334]},
+  {nom:"CIRI",type:"Laboratoire de recherche",desc:"Centre International de Recherche en Infectiologie",tutelle:"ENS Lyon / INSERM",coords:[45.7333,4.8334]},
+  {nom:"IGFL",type:"Laboratoire de recherche",desc:"Institut de Génomique Fonctionnelle de Lyon",tutelle:"ENS Lyon / CNRS",coords:[45.7333,4.8334]},
+  {nom:"LIP",type:"Laboratoire de recherche",desc:"Laboratoire de l'Informatique du Parallélisme",tutelle:"ENS Lyon / CNRS",coords:[45.7333,4.8334]},
+  {nom:"TRIANGLE",type:"Laboratoire de recherche",desc:"Action, discours, pensée politique et économique",tutelle:"ENS Lyon / CNRS",coords:[45.7333,4.8334]},
+  {nom:"IAO",type:"Laboratoire de recherche",desc:"Institut d'Asie Orientale",tutelle:"ENS Lyon",coords:[45.7333,4.8334]},
+  {nom:"UMPA",type:"Laboratoire de recherche",desc:"Unité de Mathématiques Pures et Appliquées",tutelle:"ENS Lyon / CNRS",coords:[45.7333,4.8334]},
+  {nom:"RDP",type:"Laboratoire de recherche",desc:"Reproduction et Développement des Plantes",tutelle:"ENS Lyon / INRAE",coords:[45.7333,4.8334]},
+  {nom:"LPH ENS",type:"Laboratoire de recherche",desc:"Laboratoire de Physique ENS Lyon",tutelle:"ENS Lyon / CNRS",coords:[45.7333,4.8334]},
+  {nom:"LBMCHOCS",type:"Laboratoire de recherche",desc:"Biologie et modélisation de la cellule",tutelle:"ENS Lyon",coords:[45.7333,4.8334]},
+  {nom:"LCH",type:"Laboratoire de recherche",desc:"Laboratoire de Chimie ENS Lyon",tutelle:"ENS Lyon / CNRS",coords:[45.7333,4.8334]},
   // Labos Campus La Doua / Lyon 1
-  {nom:"CRCL",type:"Laboratoire de recherche",desc:"Centre de Recherche en Cancérologie de Lyon",tutelle:"INSERM / CNRS / Lyon 1",coords:L1(1)},
-  {nom:"CRNL",type:"Laboratoire de recherche",desc:"Centre de Recherche en Neurosciences de Lyon",tutelle:"Lyon 1 / INSERM",coords:DU(1)},
-  {nom:"CarMeN",type:"Laboratoire de recherche",desc:"Cardiovasculaire, Métabolisme, Diabétologie & Nutrition",tutelle:"Lyon 1 / INSERM",coords:L1(3)},
-  {nom:"CRAL",type:"Laboratoire de recherche",desc:"Centre de Recherche en Astrophysique de Lyon",tutelle:"Lyon 1 / ENS / CNRS",coords:C.obsl},
-  {nom:"IBCP",type:"Laboratoire de recherche",desc:"Institut de Biologie et Chimie des Protéines",tutelle:"Lyon 1 / CNRS",coords:L1(4)},
-  {nom:"ICBMS",type:"Laboratoire de recherche",desc:"Institut de Chimie et Biochimie Moléculaire et Supramoléculaire",tutelle:"Lyon 1 / CNRS",coords:L1(5)},
-  {nom:"ICJ",type:"Laboratoire de recherche",desc:"Institut Camille Jordan — mathématiques",tutelle:"Lyon 1 / CNRS",coords:L1(6)},
-  {nom:"ILM",type:"Laboratoire de recherche",desc:"Institut Lumière Matière",tutelle:"Lyon 1 / CNRS",coords:DU(2)},
-  {nom:"INMG",type:"Laboratoire de recherche",desc:"Institut Neuromyogène",tutelle:"Lyon 1 / INSERM",coords:L1(8)},
-  {nom:"IP2i",type:"Laboratoire de recherche",desc:"Institut des Deux Infinis — physique des particules",tutelle:"Lyon 1 / CNRS",coords:DU(3)},
-  {nom:"IRCELYON",type:"Laboratoire de recherche",desc:"Institut de Recherche sur la Catalyse et l'Environnement de Lyon",tutelle:"CNRS / Lyon 1",coords:DU(4)},
-  {nom:"ISA",type:"Laboratoire de recherche",desc:"Institut des Sciences Analytiques",tutelle:"Lyon 1 / CNRS",coords:L1(11)},
-  {nom:"LBBE",type:"Laboratoire de recherche",desc:"Laboratoire Biométrie et Biologie Évolutive",tutelle:"Lyon 1 / CNRS",coords:L1(12)},
-  {nom:"LBMC",type:"Laboratoire de recherche",desc:"Laboratoire de Biomécanique et Mécanique des Chocs",tutelle:"Lyon 1",coords:L1(13)},
-  {nom:"LBTI",type:"Laboratoire de recherche",desc:"Biologie Tissulaire et Ingénierie Thérapeutique",tutelle:"Lyon 1 / CNRS",coords:L1(14)},
-  {nom:"LEHNA",type:"Laboratoire de recherche",desc:"Laboratoire d'Écologie des Hydrosystèmes Naturels et Anthropisés",tutelle:"Lyon 1 / CNRS",coords:L1(15)},
-  {nom:"LGL TPE",type:"Laboratoire de recherche",desc:"Géologie de Lyon : Terre, Planètes et Environnement",tutelle:"Lyon 1 / ENS",coords:L1(16)},
-  {nom:"LMI",type:"Laboratoire de recherche",desc:"Laboratoire des Multimatériaux et Interfaces",tutelle:"Lyon 1 / CNRS",coords:L1(17)},
-  {nom:"LAGEPP",type:"Laboratoire de recherche",desc:"Automatique et Génie des Procédés",tutelle:"Lyon 1 / CNRS",coords:L1(18)},
-  {nom:"LABTAU",type:"Laboratoire de recherche",desc:"Applications des ultrasons à la thérapie",tutelle:"Lyon 1 / INSERM",coords:L1(19)},
-  {nom:"LEM",type:"Laboratoire de recherche",desc:"Laboratoire d'Écologie Microbienne",tutelle:"Lyon 1 / CNRS",coords:L1(21)},
-  {nom:"INL",type:"Laboratoire de recherche",desc:"Institut des Nanotechnologies de Lyon",tutelle:"Lyon 1 / Centrale / CNRS",coords:DU(5)},
-  {nom:"HEMOSTASE",type:"Laboratoire de recherche",desc:"Hémostase, inflammation et sepsis",tutelle:"Lyon 1",coords:L1(24)},
-  {nom:"HESPER - RESHAPE",type:"Laboratoire de recherche",desc:"Health Services and Performance Research",tutelle:"Lyon 1",coords:L1(25)},
-  {nom:"IMMUNO",type:"Laboratoire de recherche",desc:"Immunogénomique et inflammation",tutelle:"Lyon 1",coords:L1(26)},
-  {nom:"LYOS",type:"Laboratoire de recherche",desc:"Physiopathologie des maladies osseuses",tutelle:"Lyon 1 / INSERM",coords:L1(27)},
-  {nom:"MAP",type:"Laboratoire de recherche",desc:"Microbiologie, adaptation et pathogénie",tutelle:"Lyon 1 / INSERM",coords:L1(28)},
-  {nom:"MMSB",type:"Laboratoire de recherche",desc:"Microbiologie moléculaire et biochimie structurale",tutelle:"Lyon 1 / CNRS",coords:L1(29)},
-  {nom:"NUDICE",type:"Laboratoire de recherche",desc:"Nutrition et Cerveau",tutelle:"Lyon 1 / INSERM",coords:L1(30)},
-  {nom:"P2S",type:"Laboratoire de recherche",desc:"Parcours Santé Systémique",tutelle:"Lyon 1",coords:L1(31)},
-  {nom:"PI3",type:"Laboratoire de recherche",desc:"Physiopathologie de l'immunodépression",tutelle:"Lyon 1",coords:L1(32)},
-  {nom:"SBRI",type:"Laboratoire de recherche",desc:"Stem Cell and Brain Research Institute",tutelle:"INSERM / Lyon 1",coords:C.bron},
-  {nom:"CNC / ISC",type:"Laboratoire de recherche",desc:"Centre de Neurosciences Cognitives — Institut des Sciences Cognitives Marc Jeannerot",tutelle:"CNRS / Lyon 1",coords:C.bron},
-  {nom:"B2MC",type:"Laboratoire de recherche",desc:"Molécules Bioactives et Chimie Médicinale",tutelle:"Lyon 1",coords:L1(34)},
-  {nom:"BIODYMIA",type:"Laboratoire de recherche",desc:"Bioingénierie et Dynamique Microbienne aux Interfaces des Aliments",tutelle:"Lyon 1",coords:L1(35)},
-  {nom:"IVPC",type:"Laboratoire de recherche",desc:"Infection virale et pathologie comparée",tutelle:"Lyon 1",coords:L1(36)},
-  {nom:"L2C2",type:"Laboratoire de recherche",desc:"Laboratoire langage, cerveau, cognition",tutelle:"CNRS / Lyon 1",coords:DU(6)},
-  {nom:"SAF",type:"Laboratoire de recherche",desc:"Sciences Actuarielles et Financières",tutelle:"Lyon 1",coords:L1(39)},
-  {nom:"OBSLYON",type:"Laboratoire de recherche",desc:"Observatoire de Lyon",tutelle:"Lyon 1 / ENS / CNRS",coords:C.obsl},
-  {nom:"CTO",type:"Laboratoire de recherche",desc:"Ciblage Thérapeutique en Oncologie",tutelle:"Lyon 1",coords:jit(C.clb,2,.002)},
-  {nom:"LMA",type:"Laboratoire de recherche",desc:"Laboratoire des Matériaux Avancés",tutelle:"CNRS",coords:DU(8)},
-  {nom:"LIRIS",type:"Laboratoire de recherche",desc:"Laboratoire d'InfoRmatique en Image et Systèmes d'information",tutelle:"Lyon 1 / INSA / CNRS",coords:DU(9)},
-  {nom:"UMRESTTE",type:"Laboratoire de recherche",desc:"Épidémiologie et Surveillance Transport Travail Environnement",tutelle:"Lyon 1 / INSA",coords:L1(43)},
+  {nom:"CRCL",type:"Laboratoire de recherche",desc:"Centre de Recherche en Cancérologie de Lyon",tutelle:"INSERM / CNRS / Lyon 1",coords:[45.7796,4.8656]},
+  {nom:"CRNL",type:"Laboratoire de recherche",desc:"Centre de Recherche en Neurosciences de Lyon",tutelle:"Lyon 1 / INSERM",coords:[45.7796,4.8656]},
+  {nom:"CarMeN",type:"Laboratoire de recherche",desc:"Cardiovasculaire, Métabolisme, Diabétologie & Nutrition",tutelle:"Lyon 1 / INSERM",coords:[45.7796,4.8656]},
+  {nom:"CRAL",type:"Laboratoire de recherche",desc:"Centre de Recherche en Astrophysique de Lyon",tutelle:"Lyon 1 / ENS / CNRS",coords:[45.7796,4.8656]},
+  {nom:"IBCP",type:"Laboratoire de recherche",desc:"Institut de Biologie et Chimie des Protéines",tutelle:"Lyon 1 / CNRS",coords:[45.7796,4.8656]},
+  {nom:"ICBMS",type:"Laboratoire de recherche",desc:"Institut de Chimie et Biochimie Moléculaire et Supramoléculaire",tutelle:"Lyon 1 / CNRS",coords:[45.7796,4.8656]},
+  {nom:"ICJ",type:"Laboratoire de recherche",desc:"Institut Camille Jordan — mathématiques",tutelle:"Lyon 1 / CNRS",coords:[45.7796,4.8656]},
+  {nom:"ILM",type:"Laboratoire de recherche",desc:"Institut Lumière Matière",tutelle:"Lyon 1 / CNRS",coords:[45.7796,4.8656]},
+  {nom:"INMG",type:"Laboratoire de recherche",desc:"Institut Neuromyogène",tutelle:"Lyon 1 / INSERM",coords:[45.7796,4.8656]},
+  {nom:"IP2i",type:"Laboratoire de recherche",desc:"Institut des Deux Infinis — physique des particules",tutelle:"Lyon 1 / CNRS",coords:[45.7796,4.8656]},
+  {nom:"IRCELYON",type:"Laboratoire de recherche",desc:"Institut de Recherche sur la Catalyse et l'Environnement de Lyon",tutelle:"CNRS / Lyon 1",coords:[45.7796,4.8656]},
+  {nom:"ISA",type:"Laboratoire de recherche",desc:"Institut des Sciences Analytiques",tutelle:"Lyon 1 / CNRS",coords:[45.7796,4.8656]},
+  {nom:"LBBE",type:"Laboratoire de recherche",desc:"Laboratoire Biométrie et Biologie Évolutive",tutelle:"Lyon 1 / CNRS",coords:[45.7796,4.8656]},
+  {nom:"LBMC",type:"Laboratoire de recherche",desc:"Laboratoire de Biomécanique et Mécanique des Chocs",tutelle:"Lyon 1",coords:[45.7796,4.8656]},
+  {nom:"LBTI",type:"Laboratoire de recherche",desc:"Biologie Tissulaire et Ingénierie Thérapeutique",tutelle:"Lyon 1 / CNRS",coords:[45.7796,4.8656]},
+  {nom:"LEHNA",type:"Laboratoire de recherche",desc:"Laboratoire d'Écologie des Hydrosystèmes Naturels et Anthropisés",tutelle:"Lyon 1 / CNRS",coords:[45.7796,4.8656]},
+  {nom:"LGL TPE",type:"Laboratoire de recherche",desc:"Géologie de Lyon : Terre, Planètes et Environnement",tutelle:"Lyon 1 / ENS",coords:[45.7796,4.8656]},
+  {nom:"LMI",type:"Laboratoire de recherche",desc:"Laboratoire des Multimatériaux et Interfaces",tutelle:"Lyon 1 / CNRS",coords:[45.7796,4.8656]},
+  {nom:"LAGEPP",type:"Laboratoire de recherche",desc:"Automatique et Génie des Procédés",tutelle:"Lyon 1 / CNRS",coords:[45.7796,4.8656]},
+  {nom:"LABTAU",type:"Laboratoire de recherche",desc:"Applications des ultrasons à la thérapie",tutelle:"Lyon 1 / INSERM",coords:[45.7796,4.8656]},
+  {nom:"LEM",type:"Laboratoire de recherche",desc:"Laboratoire d'Écologie Microbienne",tutelle:"Lyon 1 / CNRS",coords:[45.7796,4.8656]},
+  {nom:"INL",type:"Laboratoire de recherche",desc:"Institut des Nanotechnologies de Lyon",tutelle:"Lyon 1 / Centrale / CNRS",coords:[45.7826,4.7665]},
+  {nom:"HEMOSTASE",type:"Laboratoire de recherche",desc:"Hémostase, inflammation et sepsis",tutelle:"Lyon 1",coords:[45.7796,4.8656]},
+  {nom:"HESPER - RESHAPE",type:"Laboratoire de recherche",desc:"Health Services and Performance Research",tutelle:"Lyon 1",coords:[45.7796,4.8656]},
+  {nom:"IMMUNO",type:"Laboratoire de recherche",desc:"Immunogénomique et inflammation",tutelle:"Lyon 1",coords:[45.7796,4.8656]},
+  {nom:"LYOS",type:"Laboratoire de recherche",desc:"Physiopathologie des maladies osseuses",tutelle:"Lyon 1 / INSERM",coords:[45.7796,4.8656]},
+  {nom:"MAP",type:"Laboratoire de recherche",desc:"Microbiologie, adaptation et pathogénie",tutelle:"Lyon 1 / INSERM",coords:[45.7796,4.8656]},
+  {nom:"MMSB",type:"Laboratoire de recherche",desc:"Microbiologie moléculaire et biochimie structurale",tutelle:"Lyon 1 / CNRS",coords:[45.7796,4.8656]},
+  {nom:"NUDICE",type:"Laboratoire de recherche",desc:"Nutrition et Cerveau",tutelle:"Lyon 1 / INSERM",coords:[45.7796,4.8656]},
+  {nom:"P2S",type:"Laboratoire de recherche",desc:"Parcours Santé Systémique",tutelle:"Lyon 1",coords:[45.7796,4.8656]},
+  {nom:"PI3",type:"Laboratoire de recherche",desc:"Physiopathologie de l'immunodépression",tutelle:"Lyon 1",coords:[45.7796,4.8656]},
+  {nom:"SBRI",type:"Laboratoire de recherche",desc:"Stem Cell and Brain Research Institute",tutelle:"INSERM / Lyon 1",coords:[45.7796,4.8656]},
+  {nom:"CNC / ISC",type:"Laboratoire de recherche",desc:"Centre de Neurosciences Cognitives — Institut des Sciences Cognitives Marc Jeannerot",tutelle:"CNRS / Lyon 1",coords:[45.7796,4.8656]},
+  {nom:"B2MC",type:"Laboratoire de recherche",desc:"Molécules Bioactives et Chimie Médicinale",tutelle:"Lyon 1",coords:[45.7796,4.8656]},
+  {nom:"BIODYMIA",type:"Laboratoire de recherche",desc:"Bioingénierie et Dynamique Microbienne aux Interfaces des Aliments",tutelle:"Lyon 1",coords:[45.7796,4.8656]},
+  {nom:"IVPC",type:"Laboratoire de recherche",desc:"Infection virale et pathologie comparée",tutelle:"Lyon 1",coords:[45.7796,4.8656]},
+  {nom:"L2C2",type:"Laboratoire de recherche",desc:"Laboratoire langage, cerveau, cognition",tutelle:"CNRS / Lyon 1",coords:[45.7796,4.8656]},
+  {nom:"SAF",type:"Laboratoire de recherche",desc:"Sciences Actuarielles et Financières",tutelle:"Lyon 1",coords:[45.7796,4.8656]},
+  {nom:"OBSLYON",type:"Laboratoire de recherche",desc:"Observatoire de Lyon",tutelle:"Lyon 1 / ENS / CNRS",coords:[45.7796,4.8656]},
+  {nom:"CTO",type:"Laboratoire de recherche",desc:"Ciblage Thérapeutique en Oncologie",tutelle:"Lyon 1",coords:[45.7796,4.8656]},
+  {nom:"LMA",type:"Laboratoire de recherche",desc:"Laboratoire des Matériaux Avancés",tutelle:"CNRS",coords:[45.7801,4.8749]},
+  {nom:"LIRIS",type:"Laboratoire de recherche",desc:"Laboratoire d'InfoRmatique en Image et Systèmes d'information",tutelle:"Lyon 1 / INSA / CNRS",coords:[45.7796,4.8656]},
+  {nom:"UMRESTTE",type:"Laboratoire de recherche",desc:"Épidémiologie et Surveillance Transport Travail Environnement",tutelle:"Lyon 1 / INSA",coords:[45.7796,4.8656]},
   // Labos Lyon 2 / SHS
-  {nom:"EVS",type:"Laboratoire de recherche",desc:"Environnement, Ville, Société",tutelle:"Lyon 2 / CNRS",coords:L2(1)},
-  {nom:"LAET",type:"Laboratoire de recherche",desc:"Laboratoire Aménagement, Économie, Transports",tutelle:"Lyon 2",coords:L2(2)},
-  {nom:"LARHRA",type:"Laboratoire de recherche",desc:"Laboratoire de Recherche Historique Rhône-Alpes",tutelle:"Lyon 2",coords:L2(3)},
-  {nom:"Magellan",type:"Laboratoire de recherche",desc:"Centre de Recherche Magellan — sciences de gestion",tutelle:"Lyon 3",coords:[45.7668,4.8536]},
-  {nom:"COACTIS",type:"Laboratoire de recherche",desc:"Conception de l'Action en Situation",tutelle:"Lyon 2 / Jean Monnet",coords:L2(4)},
-  {nom:"CRPPC",type:"Laboratoire de recherche",desc:"Recherches en psychopathologie et psychologie clinique",tutelle:"Lyon 2",coords:L2(5)},
-  {nom:"DDL",type:"Laboratoire de recherche",desc:"Dynamique du Langage",tutelle:"CNRS / Lyon 2",coords:L2(7)},
-  {nom:"DIPHE",type:"Laboratoire de recherche",desc:"Développement Individu Processus Handicap Education",tutelle:"Lyon 2",coords:L2(8)},
-  {nom:"EMC",type:"Laboratoire de recherche",desc:"Étude des Mécanismes Cognitifs",tutelle:"Lyon 2",coords:L2(10)},
-  {nom:"ERIC",type:"Laboratoire de recherche",desc:"Recherche en Ingénierie des Connaissances",tutelle:"Lyon 2",coords:L2(11)},
-  {nom:"GREPS",type:"Laboratoire de recherche",desc:"Groupe de Recherche en Psychologie Sociale",tutelle:"Lyon 2",coords:L2(12)},
-  {nom:"HISOMA",type:"Laboratoire de recherche",desc:"Histoire et Sources des Mondes Antiques",tutelle:"Lyon 2 / Lyon 3",coords:L2(13)},
-  {nom:"ICAR",type:"Laboratoire de recherche",desc:"Interactions, corpus, apprentissages, représentations",tutelle:"Lyon 2 / CNRS",coords:L2(14)},
-  {nom:"CIHAM",type:"Laboratoire de recherche",desc:"Histoire des mondes chrétiens et musulmans médiévaux",tutelle:"Lyon 2 / CNRS",coords:L2(17)},
-  {nom:"CMW",type:"Laboratoire de recherche",desc:"Centre Max Weber — sociologie",tutelle:"Lyon 2 / ENS / CNRS",coords:L2(18)},
-  {nom:"GRAPHOS",type:"Laboratoire de recherche",desc:"Recherche Appliquée Pluridisciplinaire sur l'Hôpital",tutelle:"Lyon 2",coords:L2(19)},
-  {nom:"IXXI",type:"Laboratoire de recherche",desc:"Institut Rhône-Alpin des systèmes complexes",tutelle:"CNRS / UdL",coords:[45.7642,4.8353]},
-  {nom:"GATE",type:"Laboratoire de recherche",desc:"Groupe d'Analyse et de Théorie Économique Lyon Saint-Étienne",tutelle:"Lyon 2 / Jean Monnet",coords:jit([45.7455,4.835],2)},
+  {nom:"EVS",type:"Laboratoire de recherche",desc:"Environnement, Ville, Société",tutelle:"Lyon 2 / CNRS",coords:[45.7508,4.8372]},
+  {nom:"LAET",type:"Laboratoire de recherche",desc:"Laboratoire Aménagement, Économie, Transports",tutelle:"Lyon 2",coords:[45.7508,4.8372]},
+  {nom:"LARHRA",type:"Laboratoire de recherche",desc:"Laboratoire de Recherche Historique Rhône-Alpes",tutelle:"Lyon 2",coords:[45.7508,4.8372]},
+  {nom:"Magellan",type:"Laboratoire de recherche",desc:"Centre de Recherche Magellan — sciences de gestion",tutelle:"Lyon 3",coords:[45.7488,4.8605]},
+  {nom:"COACTIS",type:"Laboratoire de recherche",desc:"Conception de l'Action en Situation",tutelle:"Lyon 2 / Jean Monnet",coords:[45.7508,4.8372]},
+  {nom:"CRPPC",type:"Laboratoire de recherche",desc:"Recherches en psychopathologie et psychologie clinique",tutelle:"Lyon 2",coords:[45.7508,4.8372]},
+  {nom:"DDL",type:"Laboratoire de recherche",desc:"Dynamique du Langage",tutelle:"CNRS / Lyon 2",coords:[45.7508,4.8372]},
+  {nom:"DIPHE",type:"Laboratoire de recherche",desc:"Développement Individu Processus Handicap Education",tutelle:"Lyon 2",coords:[45.7508,4.8372]},
+  {nom:"EMC",type:"Laboratoire de recherche",desc:"Étude des Mécanismes Cognitifs",tutelle:"Lyon 2",coords:[45.7508,4.8372]},
+  {nom:"ERIC",type:"Laboratoire de recherche",desc:"Recherche en Ingénierie des Connaissances",tutelle:"Lyon 2",coords:[45.7508,4.8372]},
+  {nom:"GREPS",type:"Laboratoire de recherche",desc:"Groupe de Recherche en Psychologie Sociale",tutelle:"Lyon 2",coords:[45.7508,4.8372]},
+  {nom:"HISOMA",type:"Laboratoire de recherche",desc:"Histoire et Sources des Mondes Antiques",tutelle:"Lyon 2 / Lyon 3",coords:[45.7508,4.8372]},
+  {nom:"ICAR",type:"Laboratoire de recherche",desc:"Interactions, corpus, apprentissages, représentations",tutelle:"Lyon 2 / CNRS",coords:[45.7508,4.8372]},
+  {nom:"CIHAM",type:"Laboratoire de recherche",desc:"Histoire des mondes chrétiens et musulmans médiévaux",tutelle:"Lyon 2 / CNRS",coords:[45.7508,4.8372]},
+  {nom:"CMW",type:"Laboratoire de recherche",desc:"Centre Max Weber — sociologie",tutelle:"Lyon 2 / ENS / CNRS",coords:[45.7508,4.8372]},
+  {nom:"GRAPHOS",type:"Laboratoire de recherche",desc:"Recherche Appliquée Pluridisciplinaire sur l'Hôpital",tutelle:"Lyon 2",coords:[45.7508,4.8372]},
+  {nom:"IXXI",type:"Laboratoire de recherche",desc:"Institut Rhône-Alpin des systèmes complexes",tutelle:"CNRS / UdL",coords:[45.7333,4.8334]},
+  {nom:"GATE",type:"Laboratoire de recherche",desc:"Groupe d'Analyse et de Théorie Économique Lyon Saint-Étienne",tutelle:"Lyon 2 / Jean Monnet",coords:[45.7508,4.8372]},
   // Labos Centrale Lyon (Écully)
-  {nom:"Ampère - Centrale Lyon",type:"Laboratoire de recherche",desc:"Électrotechnique, électromagnétisme, génie électrique",tutelle:"Centrale Lyon / CNRS",coords:CT(1)},
-  {nom:"LMFA",type:"Laboratoire de recherche",desc:"Mécanique des Fluides et d'Acoustique",tutelle:"Centrale Lyon / CNRS",coords:CT(3)},
-  {nom:"LTDS",type:"Laboratoire de recherche",desc:"Tribologie et Dynamique des Systèmes",tutelle:"Centrale Lyon / CNRS",coords:CT(4)},
-  {nom:"LGPC",type:"Laboratoire de recherche",desc:"Génie des Procédés Catalytiques",tutelle:"Centrale Lyon / CNRS",coords:CT(5)},
+  {nom:"Ampère - Centrale Lyon",type:"Laboratoire de recherche",desc:"Électrotechnique, électromagnétisme, génie électrique",tutelle:"Centrale Lyon / CNRS",coords:[45.7826,4.7665]},
+  {nom:"LMFA",type:"Laboratoire de recherche",desc:"Mécanique des Fluides et d'Acoustique",tutelle:"Centrale Lyon / CNRS",coords:[45.7826,4.7665]},
+  {nom:"LTDS",type:"Laboratoire de recherche",desc:"Tribologie et Dynamique des Systèmes",tutelle:"Centrale Lyon / CNRS",coords:[45.7826,4.7665]},
+  {nom:"LGPC",type:"Laboratoire de recherche",desc:"Génie des Procédés Catalytiques",tutelle:"Centrale Lyon / CNRS",coords:[45.7826,4.7665]},
   // Labos INSA Lyon (La Doua)
-  {nom:"LAMCOS",type:"Laboratoire de recherche",desc:"Mécanique des Contacts et des Structures",tutelle:"INSA Lyon / CNRS",coords:DU(10)},
-  {nom:"MATEIS",type:"Laboratoire de recherche",desc:"Matériaux : Ingénierie et Science",tutelle:"INSA Lyon / CNRS",coords:DU(11)},
-  {nom:"CETHIL",type:"Laboratoire de recherche",desc:"Centre Thermique de Lyon",tutelle:"INSA / Centrale",coords:DU(12)},
-  {nom:"LVA",type:"Laboratoire de recherche",desc:"Laboratoire Vibrations Acoustique",tutelle:"INSA Lyon",coords:DU(13)},
-  {nom:"LGEF",type:"Laboratoire de recherche",desc:"Génie Électrique et Ferroélectricité",tutelle:"Lyon 1 / INSA",coords:DU(14)},
-  {nom:"CREATIS",type:"Laboratoire de recherche",desc:"Acquisition et Traitement de l'Image pour la Santé",tutelle:"Lyon 1 / INSA / CNRS",coords:DU(15)},
-  {nom:"CITI",type:"Laboratoire de recherche",desc:"Innovation en Télécommunication et Intégration de Services",tutelle:"INSA Lyon",coords:DU(16)},
-  {nom:"DEEP",type:"Laboratoire de recherche",desc:"Déchets – Eaux – Environnement – Pollutions",tutelle:"INSA Lyon",coords:DU(17)},
-  {nom:"GEOMAS",type:"Laboratoire de recherche",desc:"Géomécanique Matériaux Structure",tutelle:"INSA Lyon",coords:DU(19)},
-  {nom:"IMP",type:"Laboratoire de recherche",desc:"Ingénierie des Matériaux Polymères",tutelle:"CNRS / Lyon 1 / INSA",coords:DU(20)},
-  {nom:"BF2I",type:"Laboratoire de recherche",desc:"Biologie Fonctionnelle, Insectes et Interactions",tutelle:"INSA Lyon",coords:DU(21)},
+  {nom:"LAMCOS",type:"Laboratoire de recherche",desc:"Mécanique des Contacts et des Structures",tutelle:"INSA Lyon / CNRS",coords:[45.7834,4.8782]},
+  {nom:"MATEIS",type:"Laboratoire de recherche",desc:"Matériaux : Ingénierie et Science",tutelle:"INSA Lyon / CNRS",coords:[45.7834,4.8782]},
+  {nom:"CETHIL",type:"Laboratoire de recherche",desc:"Centre Thermique de Lyon",tutelle:"INSA / Centrale",coords:[45.7834,4.8782]},
+  {nom:"LVA",type:"Laboratoire de recherche",desc:"Laboratoire Vibrations Acoustique",tutelle:"INSA Lyon",coords:[45.7834,4.8782]},
+  {nom:"LGEF",type:"Laboratoire de recherche",desc:"Génie Électrique et Ferroélectricité",tutelle:"Lyon 1 / INSA",coords:[45.7796,4.8656]},
+  {nom:"CREATIS",type:"Laboratoire de recherche",desc:"Acquisition et Traitement de l'Image pour la Santé",tutelle:"Lyon 1 / INSA / CNRS",coords:[45.7796,4.8656]},
+  {nom:"CITI",type:"Laboratoire de recherche",desc:"Innovation en Télécommunication et Intégration de Services",tutelle:"INSA Lyon",coords:[45.7834,4.8782]},
+  {nom:"DEEP",type:"Laboratoire de recherche",desc:"Déchets – Eaux – Environnement – Pollutions",tutelle:"INSA Lyon",coords:[45.7834,4.8782]},
+  {nom:"GEOMAS",type:"Laboratoire de recherche",desc:"Géomécanique Matériaux Structure",tutelle:"INSA Lyon",coords:[45.7834,4.8782]},
+  {nom:"IMP",type:"Laboratoire de recherche",desc:"Ingénierie des Matériaux Polymères",tutelle:"CNRS / Lyon 1 / INSA",coords:[45.7796,4.8656]},
+  {nom:"BF2I",type:"Laboratoire de recherche",desc:"Biologie Fonctionnelle, Insectes et Interactions",tutelle:"INSA Lyon",coords:[45.7834,4.8782]},
   // Labos Mines Saint-Étienne
-  {nom:"LGF",type:"Laboratoire de recherche",desc:"Laboratoire Georges Friedel — science des matériaux",tutelle:"Mines Saint-Étienne / CNRS",coords:MN(1)},
-  {nom:"SMS",type:"Laboratoire de recherche",desc:"Sciences des Matériaux et des Structures",tutelle:"Mines Saint-Étienne",coords:MN(2)},
-  {nom:"SPIN",type:"Laboratoire de recherche",desc:"Sciences des Processus Industriels et Naturels",tutelle:"Mines Saint-Étienne",coords:MN(3)},
-  {nom:"IHF",type:"Laboratoire de recherche",desc:"Institut Henri Fayol — ingénierie et gestion",tutelle:"Mines Saint-Étienne",coords:MN(4)},
-  {nom:"SAS",type:"Laboratoire de recherche",desc:"Sécurité des architectures et des systèmes",tutelle:"Mines Saint-Étienne",coords:MN(5)},
+  {nom:"LGF",type:"Laboratoire de recherche",desc:"Laboratoire Georges Friedel — science des matériaux",tutelle:"Mines Saint-Étienne / CNRS",coords:[45.4225,4.4084]},
+  {nom:"SMS",type:"Laboratoire de recherche",desc:"Sciences des Matériaux et des Structures",tutelle:"Mines Saint-Étienne",coords:[45.4225,4.4084]},
+  {nom:"SPIN",type:"Laboratoire de recherche",desc:"Sciences des Processus Industriels et Naturels",tutelle:"Mines Saint-Étienne",coords:[45.4225,4.4084]},
+  {nom:"IHF",type:"Laboratoire de recherche",desc:"Institut Henri Fayol — ingénierie et gestion",tutelle:"Mines Saint-Étienne",coords:[45.4225,4.4084]},
+  {nom:"SAS",type:"Laboratoire de recherche",desc:"Sécurité des architectures et des systèmes",tutelle:"Mines Saint-Étienne",coords:[45.4225,4.4084]},
   // Labos Jean Monnet / Saint-Étienne
-  {nom:"CELSE",type:"Laboratoire universitaire",desc:"Centre d'Expérimentation et de Liaison des Sciences de l'Éducation",tutelle:"Université Jean Monnet",coords:JM(1)},
-  {nom:"SAINBIOSE",type:"Laboratoire de recherche",desc:"Santé Ingénierie Biologie Saint-Étienne",tutelle:"Jean Monnet / CHU SE",coords:JM(2)},
-  {nom:"LaHC",type:"Laboratoire de recherche",desc:"Laboratoire Hubert Curien — informatique, optique",tutelle:"Jean Monnet / CNRS",coords:JM(3)},
-  {nom:"LASPI",type:"Laboratoire de recherche",desc:"Analyse des Signaux et Processus Industriels",tutelle:"Jean Monnet",coords:JM(4)},
-  {nom:"CERCRID",type:"Laboratoire de recherche",desc:"Recherches Critiques sur le Droit",tutelle:"Jean Monnet",coords:JM(5)},
-  {nom:"GIMAP",type:"Laboratoire de recherche",desc:"Immunité des Muqueuses et Agents Pathogènes",tutelle:"Jean Monnet / INSERM",coords:JM(6)},
-  {nom:"ECLLA",type:"Laboratoire de recherche",desc:"Études du contemporain en Littératures, Langues, Arts",tutelle:"Jean Monnet",coords:JM(8)},
-  {nom:"LGCB",type:"Laboratoire de recherche",desc:"Génie Civil et Bâtiment",tutelle:"Jean Monnet",coords:JM(11)},
-  {nom:"LIBM",type:"Laboratoire de recherche",desc:"Biologie de la Motricité",tutelle:"Jean Monnet / Lyon 1",coords:JM(12)},
-  {nom:"GIMAP",type:"Laboratoire de recherche",desc:"Groupe sur l'Immunité des Muqueuses et Agents Pathogènes",tutelle:"Jean Monnet",coords:JM(13)},
-  {nom:"SNA EPIS",type:"Laboratoire de recherche",desc:"Système Nerveux Autonome — épidémiologie, physiologie, santé",tutelle:"Jean Monnet",coords:JM(14)},
-  {nom:"LIMOS",type:"Laboratoire de recherche",desc:"Informatique, Modélisation et Optimisation des Systèmes",tutelle:"Jean Monnet / CNRS",coords:JM(15)},
-  {nom:"GATE",type:"Laboratoire de recherche",desc:"Groupe d'Analyse et de Théorie Économique",tutelle:"Lyon 2 / Jean Monnet",coords:jit(C.jm,9,.002)},
+  {nom:"CELSE",type:"Laboratoire universitaire",desc:"Centre d'Expérimentation et de Liaison des Sciences de l'Éducation",tutelle:"Université Jean Monnet",coords:[45.4248,4.3927]},
+  {nom:"SAINBIOSE",type:"Laboratoire de recherche",desc:"Santé Ingénierie Biologie Saint-Étienne",tutelle:"Jean Monnet / CHU SE",coords:[45.4248,4.3927]},
+  {nom:"LaHC",type:"Laboratoire de recherche",desc:"Laboratoire Hubert Curien — informatique, optique",tutelle:"Jean Monnet / CNRS",coords:[45.4248,4.3927]},
+  {nom:"LASPI",type:"Laboratoire de recherche",desc:"Analyse des Signaux et Processus Industriels",tutelle:"Jean Monnet",coords:[45.4248,4.3927]},
+  {nom:"CERCRID",type:"Laboratoire de recherche",desc:"Recherches Critiques sur le Droit",tutelle:"Jean Monnet",coords:[45.4248,4.3927]},
+  {nom:"GIMAP",type:"Laboratoire de recherche",desc:"Immunité des Muqueuses et Agents Pathogènes",tutelle:"Jean Monnet / INSERM",coords:[45.4248,4.3927]},
+  {nom:"ECLLA",type:"Laboratoire de recherche",desc:"Études du contemporain en Littératures, Langues, Arts",tutelle:"Jean Monnet",coords:[45.4248,4.3927]},
+  {nom:"LGCB",type:"Laboratoire de recherche",desc:"Génie Civil et Bâtiment",tutelle:"Jean Monnet",coords:[45.4248,4.3927]},
+  {nom:"LIBM",type:"Laboratoire de recherche",desc:"Biologie de la Motricité",tutelle:"Jean Monnet / Lyon 1",coords:[45.4248,4.3927]},
+  {nom:"GIMAP",type:"Laboratoire de recherche",desc:"Groupe sur l'Immunité des Muqueuses et Agents Pathogènes",tutelle:"Jean Monnet",coords:[45.4248,4.3927]},
+  {nom:"SNA EPIS",type:"Laboratoire de recherche",desc:"Système Nerveux Autonome — épidémiologie, physiologie, santé",tutelle:"Jean Monnet",coords:[45.4248,4.3927]},
+  {nom:"LIMOS",type:"Laboratoire de recherche",desc:"Informatique, Modélisation et Optimisation des Systèmes",tutelle:"Jean Monnet / CNRS",coords:[45.4248,4.3927]},
+  {nom:"GATE",type:"Laboratoire de recherche",desc:"Groupe d'Analyse et de Théorie Économique",tutelle:"Lyon 2 / Jean Monnet",coords:[45.7508,4.8372]},
   // Transport / IFSTTAR
-  {nom:"LESCOT",type:"Laboratoire de recherche",desc:"Ergonomie et sciences cognitives pour les transports",tutelle:"Univ. Gustave Eiffel",coords:C.ifstar},
-  {nom:"LTE",type:"Laboratoire de recherche",desc:"Laboratoire Transport Environnement",tutelle:"Univ. Gustave Eiffel",coords:jit(C.ifstar,1,.001)},
-  {nom:"UMRAE",type:"Laboratoire de recherche",desc:"Acoustique Environnementale",tutelle:"Univ. Gustave Eiffel",coords:jit(C.ifstar,2,.001)},
-  {nom:"LICIT",type:"Laboratoire de recherche",desc:"Ingénierie Circulation Transports",tutelle:"",coords:jit(C.ifstar,3,.001)},
-  {nom:"RIVERLY",type:"Laboratoire de recherche",desc:"Hydro-écologie fluviale",tutelle:"",coords:[45.768,4.908]},
+  {nom:"LESCOT",type:"Laboratoire de recherche",desc:"Ergonomie et sciences cognitives pour les transports",tutelle:"Univ. Gustave Eiffel",coords:[45.7286,4.9197]},
+  {nom:"LTE",type:"Laboratoire de recherche",desc:"Laboratoire Transport Environnement",tutelle:"Univ. Gustave Eiffel",coords:[45.7286,4.9197]},
+  {nom:"UMRAE",type:"Laboratoire de recherche",desc:"Acoustique Environnementale",tutelle:"Univ. Gustave Eiffel",coords:[45.7286,4.9197]},
+  {nom:"LICIT",type:"Laboratoire de recherche",desc:"Ingénierie Circulation Transports",tutelle:"Univ. Gustave Eiffel",coords:[45.7286,4.9197]},
+  {nom:"RIVERLY",type:"Laboratoire de recherche",desc:"Hydro-écologie fluviale",tutelle:"INRAE",coords:[45.7796,4.8656]},
 ];
 const seen=new Set();
 const ACTEURS=AR.filter(a=>{if(seen.has(a.nom))return false;seen.add(a.nom);return true;});
 
 /* ════════════ HELPERS ════════════ */
-const COL={sociale:'#0d9488',techno:'#1a56db',eco:'#c2410c',ouverte:'#6d28d9',mixte:'#b45309',
-  université:'#1a56db',laboratoire:'#0d9488',institution:'#c2410c',entreprise:'#6d28d9',
-  santé:'#b91c1c',collectivité:'#b45309',transfert:'#15803d',dispositif:'#b45309'};
+const COL={sociale:'#34d399',techno:'#6c8cff',eco:'#fb923c',ouverte:'#c084fc',mixte:'#fbbf24',
+  université:'#6c8cff',laboratoire:'#34d399',institution:'#fb923c',entreprise:'#c084fc',
+  santé:'#f87171',collectivité:'#fbbf24',transfert:'#4ade80',dispositif:'#fbbf24'};
 function tkD(t){t=t.toLowerCase();if(t.includes('sociale'))return'sociale';if(t.includes('techno'))return'techno';if(t.includes('éco')||t.includes('eco'))return'eco';if(t.includes('ouverte'))return'ouverte';return'mixte';}
 function tkA(t){t=(t||'').toLowerCase();if(t.includes('universit')&&!t.includes('inter'))return'université';if(t.includes('laborat')||t.includes('programme')||t.includes('coord'))return'laboratoire';if(t.includes('instit')||t.includes('organisme')||t.includes('calcul'))return'institution';if(t.includes('collectiv'))return'collectivité';if(t.includes('chu')||t.includes('hôpit')||t.includes('investig')||t.includes('cancer'))return'santé';if(t.includes('satt')||t.includes('transfert')||t.includes('pôle')||t.includes('pole'))return'transfert';if(t.includes('entreprise'))return'entreprise';if(t.includes('grande')||t.includes('iep'))return'institution';return'laboratoire';}
 function bcD(k){return{sociale:'bs',techno:'bt',eco:'be',ouverte:'bo',mixte:'bm'}[k]||'';}
 function bcA(k){return{université:'bu',laboratoire:'bl',institution:'bi',entreprise:'bep',santé:'bsa',collectivité:'bc',transfert:'btr'}[k]||'bl';}
 function stD(t){if(t.includes('sociale'))return'Sociale';if(t.includes('techno'))return'Techno';if(t.includes('éco'))return'Éco';if(t.includes('ouverte'))return'Ouverte';return'Mixte';}
 function stA(t){if(!t)return'—';if(t.includes('Univ'))return'Université';if(t.includes('Labo'))return'Labo';if(t.includes('CHU')||t.includes('Hôpit'))return'CHU';if(t.includes('cancer'))return'CLCC';if(t.includes('SATT'))return'SATT';if(t.includes('Entreprise'))return'Entreprise';if(t.includes('Pôle'))return'Pôle';if(t.includes('Grande')||t.includes('IEP'))return'Gde École';if(t.includes('Institution'))return'Institution';if(t.includes('Collectiv'))return'Collectivité';if(t.includes('Organisme'))return'Org. nat.';if(t.includes('Structure'))return'COMUE';return t.split(' ').slice(0,2).join(' ');}
-function trlC(v){if(v<=3)return{f:'#c2410c',t:'#b45309'};if(v<=6)return{f:'#b45309',t:'#0d9488'};return{f:'#0d9488',t:'#1a56db'};}
+function trlC(v){if(v<=3)return{f:'#fb923c',t:'#fbbf24'};if(v<=6)return{f:'#fbbf24',t:'#34d399'};return{f:'#34d399',t:'#6c8cff'};}
 function trlL(v){if(v<=3)return'Concept / Recherche fondamentale';if(v<=5)return'Développement / Validation';if(v<=7)return'Démonstration / Pré-déploiement';return'Maturité opérationnelle';}
 function ct(nom){return CONTACTS[nom]||null;}
 
@@ -707,25 +723,26 @@ let map,allMarkers=[],clusterGroup,mapFilter='all';
 function makeIcon(color,shape){
   const s=shape==='rect'?26:22;
   const svg=shape==='rect'
-    ?`<svg xmlns='http://www.w3.org/2000/svg' width='${s}' height='${s}' viewBox='0 0 26 26'><rect x='2' y='2' width='22' height='22' rx='5' fill='${color}' stroke='white' stroke-width='2'/><rect x='8' y='8' width='10' height='10' rx='2' fill='white' opacity='.35'/></svg>`
-    :`<svg xmlns='http://www.w3.org/2000/svg' width='${s}' height='${s}' viewBox='0 0 22 22'><circle cx='11' cy='11' r='8' fill='${color}' stroke='white' stroke-width='2'/><circle cx='11' cy='11' r='3' fill='white' opacity='.35'/></svg>`;
+    ?`<svg xmlns='http://www.w3.org/2000/svg' width='${s}' height='${s}' viewBox='0 0 26 26'><defs><filter id='g'><feDropShadow dx='0' dy='0' stdDeviation='2' flood-color='${color}' flood-opacity='.5'/></filter></defs><rect x='2' y='2' width='22' height='22' rx='5' fill='${color}' stroke='rgba(255,255,255,.8)' stroke-width='1.5' filter='url(%23g)'/><rect x='8' y='8' width='10' height='10' rx='2' fill='white' opacity='.3'/></svg>`
+    :`<svg xmlns='http://www.w3.org/2000/svg' width='${s}' height='${s}' viewBox='0 0 22 22'><defs><filter id='g'><feDropShadow dx='0' dy='0' stdDeviation='2' flood-color='${color}' flood-opacity='.5'/></filter></defs><circle cx='11' cy='11' r='8' fill='${color}' stroke='rgba(255,255,255,.8)' stroke-width='1.5' filter='url(%23g)'/><circle cx='11' cy='11' r='3' fill='white' opacity='.3'/></svg>`;
   return L.divIcon({html:svg,className:'',iconSize:[s,s],iconAnchor:[s/2,s/2],popupAnchor:[0,-s/2+2]});
 }
 function initMap(){
   map=L.map('map',{zoomControl:true}).setView([45.62,4.76],10);
-  // Classic OSM tile — standard rendering
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-    attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    maxZoom:19
+  // CartoDB Dark Matter — minimal dark basemap
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
+    attribution:'© <a href="https://www.openstreetmap.org/copyright">OSM</a> · <a href="https://carto.com/">CARTO</a>',
+    maxZoom:19,subdomains:'abcd'
   }).addTo(map);
   clusterGroup=L.markerClusterGroup({
     showCoverageOnHover:false,maxClusterRadius:50,
     iconCreateFunction(cluster){
       const n=cluster.getChildCount(),s=n>50?42:n>20?34:28;
-      return L.divIcon({className:'',html:`<div style="background:rgba(26,86,219,.75);border:2px solid white;border-radius:50%;width:${s}px;height:${s}px;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.73rem;color:white;box-shadow:0 2px 8px rgba(0,0,0,.25)">${n}</div>`,iconSize:[s,s]});
+      return L.divIcon({className:'',html:`<div style="background:rgba(108,140,255,.75);border:2px solid rgba(255,255,255,.7);border-radius:50%;width:${s}px;height:${s}px;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.73rem;color:white;box-shadow:0 2px 12px rgba(108,140,255,.4)">${n}</div>`,iconSize:[s,s]});
     }
   });
   DISP.forEach((d,i)=>{
+    if(!d.coords)return;
     const k=tkD(d.type),c=ct(d.nom)||ct(d.portage);
     const m=L.marker(d.coords,{icon:makeIcon(COL[k],'rect')});
     m.bindPopup(`<span class="pname">${d.nom}</span><span class="ptype">🚀 Dispositif · ${d.type}</span>${contactRowsPopup(c)}<button class="pbtn" onclick="openModalD(${i})">Voir le détail →</button>`,{maxWidth:250});
@@ -733,7 +750,8 @@ function initMap(){
   });
   ACTEURS.forEach((a,i)=>{
     if(!a.coords)return;
-    const k=tkA(a.type),c=ct(a.nom);
+    const k=tkA(a.type);
+    const c=ct(a.nom);
     const m=L.marker(a.coords,{icon:makeIcon(COL[k],'circle')});
     m.bindPopup(`<span class="pname">${a.nom}</span><span class="ptype">${a.type}${a.tutelle?' · '+a.tutelle:''}</span>${contactRowsPopup(c)}<button class="pbtn" onclick="openSb(${i})">Voir la fiche →</button>`,{maxWidth:250});
     m._ft=k;m._nom=a.nom.toLowerCase();allMarkers.push(m);clusterGroup.addLayer(m);
